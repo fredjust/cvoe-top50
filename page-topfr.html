@@ -1,0 +1,31 @@
+<!-- AFFICHE LE TOP 50 CLUB FEMININ RAPIDE /CATEG--> 
+
+<BOUCLE_club(club){par commune}>
+#SET{#REF,#NOM}
+</BOUCLE_club>
+
+<h1><a href="spip.php?page=top50&dep=#ENV{dep}">Top 50</a> - #ENV{dep} - Catégorie #ENV{cat,Sen}F - Rapide</h1>
+Voir <a href="spip.php?page=liste&dep=#ENV{dep}">la liste des clubs</a> - Voir le classement pour l'<a href="spip.php?page=topf&cat=#ENV{cat,Sen}&dep=#ENV{dep}"><b>Elo lent</b></a>
+<hr>
+<b>Filtrer par catégorie : </b>
+<a href="spip.php?page=topfr&cat=Ppo&dep=#ENV{dep}">Ppo</a> - 
+<a href="spip.php?page=topfr&cat=Pou&dep=#ENV{dep}">Pou</a> - 
+<a href="spip.php?page=topfr&cat=Pup&dep=#ENV{dep}">Pup</a> - 
+<a href="spip.php?page=topfr&cat=Ben&dep=#ENV{dep}">Ben</a> - 
+<a href="spip.php?page=topfr&cat=Min&dep=#ENV{dep}">Min</a> - 
+<a href="spip.php?page=topfr&cat=Cad&dep=#ENV{dep}">Cad</a> - 
+<a href="spip.php?page=topfr&cat=Jun&dep=#ENV{dep}">Jun</a> - 
+<a href="spip.php?page=topfr&cat=Sen&dep=#ENV{dep}">Sen</a> - 
+<a href="spip.php?page=topfr&cat=Vet&dep=#ENV{dep}">Vet</a> - 
+<a href="spip.php?page=top50fr&dep=#ENV{dep}"><b>Toutes</b></a>
+
+<table>
+<tr class='prems_ligne'>
+<td></td><td> NOM &nbsp;</td> <td> PRENOM &nbsp;</td> <td> RAPIDE &nbsp;</td> <td> Cat &nbsp;</td><td>CLUB</td>
+</tr>
+<BOUCLE_joueur(joueur){0,50}{dep=#ENV{dep}}{sexe=F}{cat IN #ENV{cat,Sen}F}{par rapide}{inverse}>
+<tr>
+<td>#COMPTEUR_BOUCLE &nbsp;</td><td><b><a href="http://www.echecs.asso.fr/FicheArchivesElo.aspx?Id=#REF" target="_blank"> #NOM</a> &nbsp;</b></td> <td> #PRENOM &nbsp;</td> <td> #RAPIDE &nbsp;</td> <td> #CAT &nbsp;</td><td><a href="spip.php?page=topcfr&club=#CLUBREFr&cat=#ENV{cat,Sen}&dep=#ENV{dep}"> #GET{#CLUBREF} </a></td>
+</tr>
+</BOUCLE_joueur>
+</table>

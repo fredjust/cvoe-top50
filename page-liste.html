@@ -1,0 +1,13 @@
+<!-- AFFICHE LE TOP 50 LA LISTE DES CLUBS --> 
+
+<h1>Les Clubs du #ENV{dep}</h1>
+
+<table>
+<tr class='prems_ligne'><td>&nbsp;</br>&nbsp;</td><td><b>NOM</b></td><td><b>COMMUNE</b></td><td>Joueurs</td>
+<BOUCLE_club(club){dep=#ENV{dep}}{par commune}>
+<tr>
+<td>&nbsp;</br>&nbsp;</td><td><b>#NOM</b></td><td>#COMMUNE</td><td align="right"><a href="spip.php?page=top50c&club=#REF&dep=#ENV{dep}" title="Voir le top du club">top du Club</a></td>
+</tr>
+</BOUCLE_club>
+</table>
+</br>

@@ -1,0 +1,33 @@
+<!-- AFFICHE LE TOP 50 CLUB JEUNE --> 
+
+<BOUCLE_club(club){ref=#ENV{club}}>
+#SET{#REF,#NOM}
+<h1><a href="spip.php?page=top50&dep=#ENV{dep}">Top 50</a> - #NOM - Jeunes </h1>
+Ville : #COMMUNE -  Voir le classement pour l'<a href="spip.php?page=topcjr&club=#ENV{club}&dep=#ENV{dep}"><b>Elo rapide</b></a> 
+/ <a href="spip.php?page=top50j&dep=#ENV{dep}">tous les clubs</a>
+</BOUCLE_club>
+<hr>
+
+<b>Filtrer par catégorie : </b>
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Ppo&dep=#ENV{dep}">Ppo</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Pou&dep=#ENV{dep}">Pou</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Pup&dep=#ENV{dep}">Pup</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Ben&dep=#ENV{dep}">Ben</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Min&dep=#ENV{dep}">Min</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Cad&dep=#ENV{dep}">Cad</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Jun&dep=#ENV{dep}">Jun</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Sen&dep=#ENV{dep}">Sen</a> - 
+<a href="spip.php?page=topc&club=#ENV{club}&cat=Vet&dep=#ENV{dep}">Vet</a> - 
+<a href="spip.php?page=topcf&club=#ENV{club}&dep=#ENV{dep}"><b>Féminines</b></a> - 
+<a href="spip.php?page=top50c&club=#ENV{club}&dep=#ENV{dep}"><b>Toutes</b></a>
+
+<table>
+<tr class='prems_ligne'>
+<td></td><td> NOM &nbsp;</td> <td> PRENOM &nbsp;</td> <td> ELO &nbsp;</td> <td> &nbsp;</td><td> Cat &nbsp;</td><td>CLUB</td>
+</tr>
+<BOUCLE_joueur(joueur){0,50}{clubref=#ENV{club}}{!cat IN SenM,SenF,VetM,VetF,JunM,JunF,CadM,CadF}{par elo}{inverse}>
+<tr>
+<td>#COMPTEUR_BOUCLE &nbsp;</td><td><b><a href="http://www.echecs.asso.fr/FicheArchivesElo.aspx?Id=#REF" target="_blank"> #NOM </a> &nbsp;</b></td> <td> #PRENOM &nbsp;</td> <td> #ELO &nbsp;</td> <td> #FIDE &nbsp;</td><td> #CAT &nbsp;</td><td> #GET{#CLUBREF} </td>
+</tr>
+</BOUCLE_joueur>
+</table>
