@@ -1,6 +1,6 @@
 <!-- AFFICHE LE TOP 50 --> 
 
-<BOUCLE_club(club){dep=#ENV{dep}}{par commune}>
+<BOUCLE_club(club){dep=#ENV{dep}}{par commune}> 
 #SET{#REF,#NOM}
 </BOUCLE_club>
 <h1><a href="spip.php?page=top50&dep=#ENV{dep}">Top 50</a> - Département : #ENV{dep}</h1>
@@ -25,7 +25,7 @@ Voir <a href="spip.php?page=liste&dep=#ENV{dep}">la liste des clubs</a> - Voir l
 </tr>
 <BOUCLE_joueur(joueur){0,50}{dep=#ENV{dep}}{par elo}{inverse}>
 <tr>
-<td>#COMPTEUR_BOUCLE &nbsp;</td><td><b><a href="http://www.echecs.asso.fr/FicheArchivesElo.aspx?Id=#REF" target="_blank"> #NOM </a> &nbsp;</b></td> <td> #PRENOM &nbsp;</td> <td> #ELO &nbsp;</td> <td> #FIDE &nbsp;</td><td> #CAT &nbsp;</td><td><a href="spip.php?page=top50c&club=#CLUBREF"> #GET{#CLUBREF} </a></td>
+<td>#COMPTEUR_BOUCLE &nbsp;</td><td><b><a href="http://www.echecs.asso.fr/FicheArchivesElo.aspx?Id=#REF" target="_blank"> #NOM </a> &nbsp;</b></td> <td> #PRENOM &nbsp;</td> <td> #ELO &nbsp;</td> <td> #FIDE &nbsp;</td><td> #CAT &nbsp;</td><td><a href="spip.php?page=top50c&club=#CLUBREF&dep=#ENV{dep}"> #GET{#CLUBREF} </a></td>
 </tr>
 </BOUCLE_joueur>
 </table>
